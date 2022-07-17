@@ -25,5 +25,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATank::Move(float Value)
 {
-	
+	FVector DeltaLocation {};
+	DeltaLocation.X = Value;
+	AddActorLocalOffset(DeltaLocation);
 }
