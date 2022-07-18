@@ -26,14 +26,16 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {
-	FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
-	FRotator LookAtRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);
-	TurretMesh->SetWorldRotation(
-		FMath::FInterpTo(
+	const FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
+	const FRotator LookAtRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);
+	TurretMesh->SetWorldRotation(LookAtRotation);
+	/*
+	* we can use this func instead of LookAtRotation иut on my machine it crashes for some reason
+	* FMath::FInterpTo(
 			TurretMesh->GetComponentRotation(),
 			LookAtRotation,
 			UGameplayStatics::GetWorldDeltaSeconds(this),
 			15.f)
-		);
+	 */
 }
 
