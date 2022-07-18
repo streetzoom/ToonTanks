@@ -39,3 +39,7 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 	 */
 }
 
+void ABasePawn::Fire()
+{
+}
+
